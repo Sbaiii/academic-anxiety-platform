@@ -1,5 +1,6 @@
 "use client"
 
+import { useEffect, useState } from "react"
 import { ClipboardList, Compass, CalendarRange, LifeBuoy, Sparkles, ChevronRight, Wind } from "lucide-react"
 import { Card } from "@/components/ui/card"
 import { cn } from "@/lib/utils"
@@ -49,10 +50,16 @@ export function HomeView({
   onNavigate: (view: AppView) => void
   onOpenCalmMode: () => void
 }) {
+  const [greeting, setGreeting] = useState("Hello")
+
+  useEffect(() => {
+    setGreeting(getGreeting())
+  }, [])
+
   return (
     <div className="animate-fade-in space-y-6">
       <div>
-        <p className="text-sm font-medium text-primary">{getGreeting()}</p>
+        <p className="text-sm font-medium text-primary">{greeting}</p>
         <h1 className="mt-1 text-2xl font-semibold tracking-tight">How can MindCare help today?</h1>
         <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
           Four tools built for academic stress — pick one below or get immediate calm.
