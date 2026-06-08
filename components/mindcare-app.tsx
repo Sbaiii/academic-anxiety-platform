@@ -17,8 +17,8 @@ export function MindCareApp() {
   const [calmOpen, setCalmOpen] = useState(false)
 
   return (
-    <div className="page-glow mx-auto flex min-h-[100dvh] w-full max-w-md flex-col">
-      <header className="sticky top-0 z-30 shrink-0 px-5 pb-3 pt-[max(0.5rem,env(safe-area-inset-top))]">
+    <div className="page-glow mx-auto min-h-dvh w-full max-w-md">
+      <header className="sticky top-0 z-30 px-5 pb-3 pt-[max(0.5rem,env(safe-area-inset-top))]">
         <div className="glass-nav flex items-center justify-between rounded-2xl px-4 py-3">
           <div className="flex items-center gap-2.5">
             <span className="flex size-9 items-center justify-center rounded-xl bg-primary text-primary-foreground shadow-sm shadow-primary/25">
@@ -43,7 +43,7 @@ export function MindCareApp() {
         </div>
       </header>
 
-      <main className="min-h-0 flex-1 overflow-y-auto overscroll-contain px-5 pb-28 pt-1">
+      <main className="px-5 pb-28 pt-1">
         <div className={cn("animate-fade-in", view !== "home" && "animate-slide-up")}>
           {view === "home" && <HomeView onNavigate={setView} onOpenCalmMode={() => setCalmOpen(true)} />}
           {view === "plan" && (
